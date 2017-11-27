@@ -1,0 +1,28 @@
+
+<div  ng-controller="myaccountCtrl">
+    <form id="userForm" name="userForm" ng-submit="submitForm()" novalidate>
+
+        <!-- NAME -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+            <label>Имя</label>
+            <input id="inputName" type="text" name="name" class="form-control" ng-model="user.name" required>
+            <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Укажите, пожалуйста, Ваше имя.</p>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+            <label>E-mail</label>
+            <input id="inputEmail" type="email" name="email" class="form-control" ng-model="user.email" required>
+            <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">e-mail указан не правильно.</p>
+        </div>
+
+        <!-- PHONENOMBER -->
+        <div class="form-group" >
+            <label>Телефон</label>
+            <input  id="inputPhonenomber" type="text" name="phone" ui-mask="+7 (999) 999-99-99" class="form-control" ng-model="user.phone" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Submit</button>
+
+    </form>
+</div>
